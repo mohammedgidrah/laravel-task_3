@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->text('product_description');
             $table->float('product_price');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
