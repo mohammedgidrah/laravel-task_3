@@ -16,19 +16,19 @@ use App\Http\Controllers\CategoriesController;
 */
 
 // product
-// Route::get('/', ProductsController::class .'@index')->name('product.index');
+Route::get('/products', ProductsController::class .'@index')->name('product.index');
 
-// Route::get('/products/create', ProductsController::class . '@create')->name('product.create');
+Route::get('/products/create', ProductsController::class . '@create')->name('product.create');
 
-// Route::post('/products', ProductsController::class .'@store')->name('product.store');
+Route::post('/products', ProductsController::class .'@store')->name('product.store');
 
-// Route::get('/products/{product}/edit', ProductsController::class .'@edit')->name('product.edit');
+Route::get('/products/{product}/edit', ProductsController::class .'@edit')->name('product.edit');
 
-// Route::put('/products/{product}', ProductsController::class .'@update')->name('product.update');
+Route::put('/products/{product}', ProductsController::class .'@update')->name('product.update');
 
-// Route::delete('/products/{product}', ProductsController::class .'@destroy')->name('product.destroy');
+Route::delete('/products/{product}', ProductsController::class .'@destroy')->name('product.destroy');
 
-
+        
 
 // category
 Route::get('/', CategoriesController::class .'@index')->name('category.index');

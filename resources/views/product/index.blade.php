@@ -131,6 +131,7 @@
 </style>
 
 <body>
+    @include('includes.header');
     <div class="container">
         <h1>All product</h1>
         <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">Add product</a>

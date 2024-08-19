@@ -131,6 +131,7 @@
 </style>
 
 <body>
+    @include('includes.header');
     <div class="container">
         <h1>All category</h1>
         <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Add category</a>
