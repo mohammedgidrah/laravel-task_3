@@ -43,9 +43,10 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
     {
-        //
+        $categories = categories::onlyTrashed()->get();
+        return view('category.softdelete' , compact('categories')); 
     }
 
     /**

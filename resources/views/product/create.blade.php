@@ -57,6 +57,7 @@ button[type="submit"]:hover {
 }
 </style>
 <body>
+    @include('includes.header');
     <div class="form-container">
         <form id="myForm" action=" {{route('product.store') }}" method="POST">
             @csrf

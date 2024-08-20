@@ -47,7 +47,8 @@ class ProductsController extends Controller
      */
     public function show(string $id)
     {
-        return view("product.show");
+        $products = Product::onlyTrashed()->get();
+        return view('product.softdelete' , compact('products')); 
 
     }
 

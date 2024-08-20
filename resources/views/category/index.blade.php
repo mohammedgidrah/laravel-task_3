@@ -37,6 +37,7 @@
         color: #ffffff;
         text-align: center;
         cursor: pointer;
+        margin-top: 20px;
         text-decoration: none;
     }
 
@@ -135,6 +136,9 @@
     <div class="container">
         <h1>All category</h1>
         <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Add category</a>
+        <form action="{{ route('category.show', 1) }}" method="get"> 
+            <button type="submit" class="btn btn-primary mb-3">View Deleted Item</button>
+        </form>
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
