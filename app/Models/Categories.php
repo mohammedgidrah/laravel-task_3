@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class categories extends Model
@@ -15,4 +16,12 @@ class categories extends Model
         'category_name',
         'category_description',        
     ];
+    // public function product()
+    // {
+    //     return $this->hasMany(Product::class);
+    // }
+    public function product(): HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
 }

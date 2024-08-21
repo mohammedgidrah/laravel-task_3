@@ -149,6 +149,7 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>category</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -159,6 +160,7 @@
                         <td>{{ $product->product_name }}</td>
                         <td>{{ $product->product_description }}</td>
                         <td>{{ $product->product_price }}</td>
+                        <td>{{ $product->profile ? $product->categories->category_name : "not found" }}</td>
                         <td>
                             <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">Edit</a>
                             <form action="{{ route('product.destroy', $product->id) }}" method="POST"

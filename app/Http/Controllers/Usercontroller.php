@@ -142,13 +142,8 @@ class Usercontroller extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
-
-        // Delete the related profile
         $user->profile()->delete();
-    
-        // Now delete the user
         $user->delete();
-    
         return redirect()->route('Users.index')->with('success', 'User deleted successfully.');
     }
 }

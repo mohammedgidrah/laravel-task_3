@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('birthday');
             $table->foreignId('user_id')->constrained();
             $table->softDeletes();
             $table->timestamps();

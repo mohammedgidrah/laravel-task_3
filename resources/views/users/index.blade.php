@@ -68,6 +68,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>id</th>
                     <th>Username</th>
                     <th>email</th>
                     <th>Firstname</th>
@@ -78,6 +79,7 @@
             <tbody>
                 @foreach ($users as $user)
                 <tr>
+                    <td>{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->profile ? $user->profile->firstname : "not found" }}</td>
