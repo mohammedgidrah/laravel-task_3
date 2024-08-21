@@ -101,6 +101,7 @@ body {
         <ul class="navbar-links" id="nav-links">
             <li><a href="{{ route('product.index') }}">product</a></li>
             <li><a href="{{ route('category.index') }}">category</a></li>
+            <li><a href="{{ route('Users.index') }}">View Users</a></li>
 
         </ul>
         <div class="navbar-toggle" id="mobile-menu">
