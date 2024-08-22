@@ -70,6 +70,14 @@ button[type="submit"]:hover {
                 <input type="text" id="lastName" name="product_description" required>
             </div>
             <div class="form-group">
+                <label for="lastName">category name</label>
+                <input type="text" id="lastName" name="category_name" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">category description</label>
+                <input type="text" id="lastName" name="category_description" required>
+            </div>
+            <div class="form-group">
                 <label for="email">product price</label>
                 <input type="text" id="email" name="product_price" required>
             </div>

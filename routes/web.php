@@ -28,6 +28,10 @@ Route::resource('category', CategoriesController::class);
 
 // user
 Route::resource('Users', UserController::class);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 
 
 

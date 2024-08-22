@@ -155,25 +155,25 @@
             </thead>
             <tbody>
                 @foreach ($products as $product)
-                    <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->product_description }}</td>
-                        <td>{{ $product->product_price }}</td>
-                        <td>{{ $product->profile ? $product->categories->category_name : "not found" }}</td>
-                        <td>
-                            <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('product.destroy', $product->id) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"
-                                    onclick="return confirm('Are you sure?')">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->product_name }}</td>
+                    <td>{{ $product->product_description }}</td>
+                    <td>{{ $product->product_price }}</td>
+                    <td>{{ $product->category->category_name ?? 'No Category' }}</td> <!-- Corrected relationship access -->
+                    
+                    <td>
+                        <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('product.destroy', $product->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
+            
         </table>
     </div>
 </body>

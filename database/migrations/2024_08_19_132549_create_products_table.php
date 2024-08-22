@@ -16,13 +16,11 @@ return new class extends Migration
             $table->string('product_name');
             $table->text('product_description');
             $table->float('product_price');
-            // $table->foreignId('department_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('category_id'); // Must match the type of the 'id' in 'categories'
             $table->softDeletes();
             $table->timestamps();
-        
- 
+            $table->foreign('category_id')->references('id')->on('products')->onDelete('cascade');
         });
-        
     }
 
     /**

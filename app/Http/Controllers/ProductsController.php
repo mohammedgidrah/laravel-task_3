@@ -29,19 +29,63 @@ class ProductsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request)
+    // {
+    //     // dd($request);
+    //     $request->validate([
+    //         'product_name' => 'required|max:255',
+    //         'product_description' => 'required|max:255',
+    //         'product_price' => 'required|max:255',
+    //     ]);
+    
+    //     // Product::create($request->all());
+    //     $category_name = $request->category_name;
+    //     $category_description = $request->category_description;
+    //     $product_name = $request->product_name;
+    //     $product_price = $request->product_price;
+    //     $product_description = $request->product_description;
+
+    //     $categories = categories::create(["category_name"=>$category_name,"category_description"=>$category_description]);
+    //     Product::create(["product_name"=>$product_name,"product_description"=>$product_description,"product_price"=>$product_price,"category_id"=>$categories->id]);
+    
+    //     return redirect()->route('product.index')->with('success', 'product added successfully.');
+    // }
     public function store(Request $request)
-    {
-        // dd($request);
-        $request->validate([
-            'product_name' => 'required|max:255',
-            'product_description' => 'required|max:255',
-            'product_price' => 'required|max:255',
-        ]);
-    
-        Product::create($request->all());
-    
-        return redirect()->route('product.index')->with('success', 'product added successfully.');
-    }
+{
+    // Validate the incoming request data
+    $request->validate([
+        'product_name' => 'required|max:255',
+        'product_description' => 'required',
+        'product_price' => 'required|numeric',
+        'category_name' => 'required|max:255',
+        'category_description' => 'required',
+    ]);
+
+    // Extract request data
+    $category_name = $request->input('category_name');
+    $category_description = $request->input('category_description');
+    $product_name = $request->input('product_name');
+    $product_description = $request->input('product_description');
+    $product_price = $request->input('product_price');
+
+    // Create the category first
+    $category = Category::create([
+        'category_name' => $category_name,
+        'category_description' => $category_description,
+    ]);
+
+    // Create the product with the newly created category ID
+    Product::create([
+        'product_name' => $product_name,
+        'product_description' => $product_description,
+        'product_price' => $product_price,
+        'category_id' => $category->id,  // Assign the created category's ID
+    ]);
+
+    // Redirect back to the product index with a success message
+    return redirect()->route('product.index')->with('success', 'Product added successfully.');
+}
+
 
     /**
      * Display the specified resource.

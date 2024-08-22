@@ -16,14 +16,14 @@ class Product extends Model
         'product_name',
         'product_description',
         'product_price',
-        'id',
+        'category_id',
         
     ];
     // public function categories()
     // {
     //     return $this->belongsTo(categories::class);
     // }
-    public function categories(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(categories::class);
     }
